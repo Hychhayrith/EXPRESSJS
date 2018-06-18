@@ -1,0 +1,12 @@
+<% include ../views/partials/header.ejs %>
+    <ul>
+        <% todos.forEach((todo)=>{ %>
+            <li>
+                <%= todo.text %> - <%= todo.body  %>
+            </li>
+        <% }) %>
+    </ul>
+    
+
+
+<% include ../views/partials/footer.ejs %>
