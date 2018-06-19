@@ -1,11 +1,35 @@
 <% include ../views/partials/header.ejs %>
-    <ul>
-        <% todos.forEach((todo)=>{ %>
-            <li>
-                <%= todo.text %> - <%= todo.body  %>
-            </li>
-        <% }) %>
-    </ul>
+
+    <div class="row">
+        <div class="col-md-6">
+            <form action="/todo/add" method="POST">
+                <div class="form-group">
+                        <label>Text: </label>
+                        <input class="form-control" type="text" name="text">
+                </div>
+                <div class="form-group">
+                    <label>Body: </label>
+                    <textarea class="form-control" name="body" cols="30" rows="10" placeholder=""></textarea>
+                </div>
+                <input class="btn btn-primary" type="submit" value="Submit">
+            </form>
+        </div>
+        <div class="col-md-6">
+            <ul class="list-group" style="margin-top: 30px;">
+                <% todos.forEach((todo)=>{ %>
+                    <li class="list-group-item">
+                        <%= todo.text %> - <%= todo.body  %>
+                        <a class="btn btn-default" href="/todo/edit/<%= todo._id %>">Edit</a>
+                        <a data-id="<%= todo._id %>" href="#" class="delete-todo btn btn-danger"">Delete</a>
+                        
+                    </li>
+                <% }) %>
+            </ul> 
+        </div>
+    </div>
+    
+
+    
     
 
 
