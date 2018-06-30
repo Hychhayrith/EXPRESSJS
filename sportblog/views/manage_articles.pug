@@ -1,0 +1,24 @@
+extends layout
+block content
+    .container
+        .row
+            .col-md-8
+                h1 #{title}
+            .col-md-4
+                a(href="/manage/articles/add", style="margin: 10px").btn.btn-primary Add Article
+        table.table.table-striped
+            tr
+                th Title
+                th Author
+                th Date
+                th
+                th
+            each article, i in articles
+                tr
+                    td #{article.title}
+                    td #{article.author}
+                    td #{article.create_at}
+                    td
+                        a(href="/manage/articles/edit/"+article._id).btn.btn-primary Edit
+                    td
+                        a(href="#", data-id=article._id).btn.btn-danger.delete-article Delete

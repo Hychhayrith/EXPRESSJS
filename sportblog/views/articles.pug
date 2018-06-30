@@ -1,0 +1,17 @@
+extends layout
+block content
+    .container
+        h1 #{title}
+        ul.list-group
+            each article, i in articles
+                li.list-group-item 
+                    a(href="article/show"+article._id) #{article.title}
+                    br
+                    span #{article.subtitle}
+                    a(href="/articles/category/"+article.category) #{article.category}
+                    br
+                    p By: #{article.author} on #{article.create_at}
+                    br
+                    br
+                    div
+                        | #{article.body}
